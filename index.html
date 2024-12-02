@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>福井県観光システム</title>
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .simple-linear {
+            width: 100%;
+            height: auto;
+            background-image: linear-gradient(90deg, rgba(150, 167, 241, 1), rgba(115, 248, 224, 1));
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu-item {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .menu-item a {
+            color: white;
+            padding: 10px 15px;
+            font-size: 14px;
+            text-decoration: none;
+            border-radius: 13px;
+            background-color: rgb(61, 211, 151);
+            box-shadow: 0 8px 0 rgb(45, 156, 112);
+            transition: all 0.35s ease;
+            margin: 5px;
+        }
+
+        .menu-item a:hover {
+            transform: translateY(8px);
+            box-shadow: 0 2px 0 rgb(45, 156, 112);
+            background-color: rgba(255, 140, 0, 0.705);
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .title {
+            width: 100%;
+            max-width: 1024px;
+            height: 300px;
+            background-image: url('https://www.skijam.jp/guide/wp-content/uploads/2021/05/%E7%A6%8F%E4%BA%95%E9%A7%85-min.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .title p {
+            font-size: 30px;
+            color: white;
+            text-align: center;
+        }
+
+        .main {
+            width: 100%;
+            max-width: 300px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 250ms;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #327233;
+        }
+
+        /* スマートフォンサイズ */
+        @media screen and (max-width: 600px) {
+            .menu-item {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .menu-item a {
+                width: 80%;
+                text-align: center;
+            }
+
+            .title p {
+                font-size: 24px;
+            }
+        }
+
+        /* タブレットサイズ */
+        @media screen and (min-width: 601px) and (max-width: 1024px) {
+            .menu-item a {
+                font-size: 12px;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="simple-linear">
+        <div class="menu-item">
+            <a href="./fukui_tokutyou.php">福井概略</a>
+            <a href="./Access.php">福井へのアクセス</a>
+            <a href="./login_form.php">旅の記録</a>
+            <a href="./rank.php">人気スポット</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="title">
+            <p>福井県観光システム</p>
+        </div>
+
+        <div class="main">
+            <form action="get.php" method="get" class="form">
+                <h3>市の選択</h3>
+                <select name="city" id="city1">
+                    <option value="福井市">福井市</option>
+                    <option value="鯖江市">鯖江市</option>
+                    <option value="敦賀市">敦賀市</option>
+                    <option value="越前市">越前市</option>
+                    <option value="坂井市">坂井市</option>
+                    <option value="あわら市">あわら市</option>
+                    <option value="大野市">大野市</option>
+                    <option value="勝山市">勝山市</option>
+                    <option value="小浜市">小浜市</option>
+                </select>
+
+                <h3>観光地,グルメ,旅館</h3>
+                <select name="travel" id="travel1">
+                    <option value="観光地">観光地</option>
+                    <option value="グルメ">グルメ</option>
+                    <option value="旅館">旅館</option>
+                </select>
+                <br>
+                <input type="submit" value="検索">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
